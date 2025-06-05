@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace BibliotekaProjekt
 {
+    // KSIAZKI
     public partial class Form3 : Form
     {
         int selectedBookId = -1;
@@ -46,16 +47,20 @@ namespace BibliotekaProjekt
                     connection.Open();
                     string query = @"
                         SELECT
-                            k.id,
-                            k.tytul, 
-                            k.kategoria, 
-                            k.rok_wydania, 
-                            k.liczba_stron,
-                            CONCAT(a.imie, ' ', a.nazwisko) AS autor
-                        FROM 
-                            Ksiazki k
-                        INNER JOIN 
-                            Autorzy a ON k.id_autora = a.id";
+    k.id,
+    k.tytul, 
+    k.kategoria, 
+    k.rok_wydania, 
+    k.liczba_stron,
+    k.ilosc_sztuk,
+    k.ilosc_dostepnych,
+    CONCAT(a.imie, ' ', a.nazwisko) AS autor
+FROM 
+    Ksiazki k
+INNER JOIN 
+    Autorzy a ON k.id_autora = a.id;
+
+                   ";
 
                     MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
                     DataTable table = new DataTable();
@@ -117,10 +122,18 @@ namespace BibliotekaProjekt
             string kategoria = kategoria_textBox.Text.Trim();
             DateTime rokWydania = rok_dateTimePicker.Value.Date;
             int liczbaStron = (int)strony_numericUpDown.Value;
+            int iloscSztuk = (int)strony_numericUpDown.Value;          // zmienic
+            int iloscDostepnych = (int)strony_numericUpDown.Value;  // zmienic
 
-            if (string.IsNullOrEmpty(tytul) || string.IsNullOrEmpty(kategoria))
+            if (string.IsNullOrEmpty(tytul) || string.IsNullOrEmpty(kategoria) || liczbaStron <= 0 || iloscSztuk <= 0 || iloscDostepnych < 0)
             {
-                MessageBox.Show("Uzupełnij wszystkie pola.");
+                MessageBox.Show("Uzupełnij wszystkie pola poprawnie.");
+                return;
+            }
+
+            if (iloscDostepnych > iloscSztuk)
+            {
+                MessageBox.Show("Ilość dostępnych sztuk nie może być większa niż ilość wszystkich sztuk.");
                 return;
             }
 
@@ -130,8 +143,8 @@ namespace BibliotekaProjekt
                 {
                     connection.Open();
                     string query = @"
-                        INSERT INTO Ksiazki (tytul, kategoria, rok_wydania, liczba_stron, id_autora)
-                        VALUES (@tytul, @kategoria, @rok, @strony, @idAutora)";
+                        INSERT INTO Ksiazki (tytul, kategoria, rok_wydania, liczba_stron, ilosc_sztuk, ilosc_dostepnych, id_autora)
+                        VALUES (@tytul, @kategoria, @rok, @strony, @sztuk, @dostepnych, @idAutora)";
 
                     using (var cmd = new MySqlCommand(query, connection))
                     {
@@ -139,6 +152,8 @@ namespace BibliotekaProjekt
                         cmd.Parameters.AddWithValue("@kategoria", kategoria);
                         cmd.Parameters.AddWithValue("@rok", rokWydania);
                         cmd.Parameters.AddWithValue("@strony", liczbaStron);
+                        cmd.Parameters.AddWithValue("@sztuk", iloscSztuk);
+                        cmd.Parameters.AddWithValue("@dostepnych", iloscDostepnych);
                         cmd.Parameters.AddWithValue("@idAutora", wybranyAutor.Id);
                         cmd.ExecuteNonQuery();
                     }
@@ -258,7 +273,9 @@ namespace BibliotekaProjekt
                         SET tytul = @tytul, 
                             kategoria = @kategoria, 
                             rok_wydania = @rok, 
-                            liczba_stron = @strony, 
+                            liczba_stron = @strony,
+                            ilosc_sztuk = @sztuk,
+                            ilosc_dostepnych = @dostepnych,
                             id_autora = @id_autora
                         WHERE id = @id";
 
@@ -268,6 +285,8 @@ namespace BibliotekaProjekt
                         cmd.Parameters.AddWithValue("@kategoria", kategoria_textBox.Text);
                         cmd.Parameters.AddWithValue("@rok", rok_dateTimePicker.Value);
                         cmd.Parameters.AddWithValue("@strony", (int)strony_numericUpDown.Value);
+                        cmd.Parameters.AddWithValue("@sztuk", (int)strony_numericUpDown.Value); //zmienic
+                        cmd.Parameters.AddWithValue("@dostepnych", (int)strony_numericUpDown.Value); //zmienic
                         cmd.Parameters.AddWithValue("@id_autora", ((AutorComboItem)comboBoxAutorzy.SelectedItem).Id);
                         cmd.Parameters.AddWithValue("@id", selectedBookId);
 
@@ -330,6 +349,8 @@ namespace BibliotekaProjekt
                         k.kategoria,
                         k.rok_wydania,
                         k.liczba_stron,
+                        k.ilosc_sztuk,
+                        k.ilosc_dostepnych,
                         CONCAT(a.imie, ' ', a.nazwisko) AS autor
                     FROM
                         Ksiazki k
@@ -347,6 +368,8 @@ namespace BibliotekaProjekt
                         k.kategoria,
                         k.rok_wydania,
                         k.liczba_stron,
+                       k.ilosc_sztuk,
+                        k.ilosc_dostepnych,
                         CONCAT(a.imie, ' ', a.nazwisko) AS autor
                     FROM
                         Ksiazki k
@@ -440,7 +463,7 @@ namespace BibliotekaProjekt
                     if (string.IsNullOrEmpty(selectedCategory))
                     {
                         query = @"
-                    SELECT k.id, k.tytul, k.kategoria, k.rok_wydania, k.liczba_stron,
+                    SELECT k.id, k.tytul, k.kategoria, k.rok_wydania, k.liczba_stron, k.ilosc_sztuk, k.ilosc_dostepnych,
                            CONCAT(a.imie, ' ', a.nazwisko) AS autor
                     FROM Ksiazki k
                     INNER JOIN Autorzy a ON k.id_autora = a.id";
@@ -448,7 +471,7 @@ namespace BibliotekaProjekt
                     else
                     {
                         query = @"
-                    SELECT k.id, k.tytul, k.kategoria, k.rok_wydania, k.liczba_stron,
+                    SELECT k.id, k.tytul, k.kategoria, k.rok_wydania, k.liczba_stron, k.ilosc_sztuk, k.ilosc_dostepnych,
                            CONCAT(a.imie, ' ', a.nazwisko) AS autor
                     FROM Ksiazki k
                     INNER JOIN Autorzy a ON k.id_autora = a.id
@@ -498,7 +521,7 @@ namespace BibliotekaProjekt
                     connection.Open();
 
                     string query = @"
-                SELECT k.id, k.tytul, k.kategoria, k.rok_wydania, k.liczba_stron,
+                SELECT k.id, k.tytul, k.kategoria, k.rok_wydania, k.liczba_stron, k.ilosc_sztuk, k.ilosc_dostepnych,
                        CONCAT(a.imie, ' ', a.nazwisko) AS autor
                 FROM Ksiazki k
                 INNER JOIN Autorzy a ON k.id_autora = a.id
@@ -533,7 +556,7 @@ namespace BibliotekaProjekt
                     connection.Open();
 
                     string query = @"
-            SELECT k.id, k.tytul, k.kategoria, k.rok_wydania, k.liczba_stron,
+            SELECT k.id, k.tytul, k.kategoria, k.rok_wydania, k.liczba_stron, k.ilosc_sztuk, k.ilosc_dostepnych,
                    CONCAT(a.imie, ' ', a.nazwisko) AS autor
             FROM Ksiazki k
             INNER JOIN Autorzy a ON k.id_autora = a.id";
@@ -576,6 +599,8 @@ namespace BibliotekaProjekt
                     k.kategoria,
                     k.rok_wydania,
                     k.liczba_stron,
+                    k.ilosc_sztuk,
+                    k.ilosc_dostepnych,
                     CONCAT(a.imie, ' ', a.nazwisko) AS autor
                 FROM
                     Ksiazki k
@@ -593,6 +618,8 @@ namespace BibliotekaProjekt
                     k.kategoria,
                     k.rok_wydania,
                     k.liczba_stron,
+                    k.ilosc_sztuk,
+                    k.ilosc_dostepnych,
                     CONCAT(a.imie, ' ', a.nazwisko) AS autor
                 FROM
                     Ksiazki k

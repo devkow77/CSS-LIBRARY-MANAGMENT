@@ -70,7 +70,8 @@
             // 
             // znajdz_btn
             // 
-            this.znajdz_btn.Location = new System.Drawing.Point(846, 371);
+            this.znajdz_btn.Location = new System.Drawing.Point(845, 370);
+            this.znajdz_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.znajdz_btn.Name = "znajdz_btn";
             this.znajdz_btn.Size = new System.Drawing.Size(121, 30);
             this.znajdz_btn.TabIndex = 40;
@@ -81,7 +82,7 @@
             // znajdz_po_nazwisku_label
             // 
             this.znajdz_po_nazwisku_label.AutoSize = true;
-            this.znajdz_po_nazwisku_label.Location = new System.Drawing.Point(486, 378);
+            this.znajdz_po_nazwisku_label.Location = new System.Drawing.Point(485, 378);
             this.znajdz_po_nazwisku_label.Name = "znajdz_po_nazwisku_label";
             this.znajdz_po_nazwisku_label.Size = new System.Drawing.Size(149, 16);
             this.znajdz_po_nazwisku_label.TabIndex = 39;
@@ -89,7 +90,8 @@
             // 
             // znajdz_ksiazke_textBox
             // 
-            this.znajdz_ksiazke_textBox.Location = new System.Drawing.Point(666, 375);
+            this.znajdz_ksiazke_textBox.Location = new System.Drawing.Point(667, 375);
+            this.znajdz_ksiazke_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.znajdz_ksiazke_textBox.Name = "znajdz_ksiazke_textBox";
             this.znajdz_ksiazke_textBox.Size = new System.Drawing.Size(168, 22);
             this.znajdz_ksiazke_textBox.TabIndex = 38;
@@ -98,6 +100,7 @@
             // 
             this.wyczysc_btn.BackColor = System.Drawing.Color.Silver;
             this.wyczysc_btn.Location = new System.Drawing.Point(323, 480);
+            this.wyczysc_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.wyczysc_btn.Name = "wyczysc_btn";
             this.wyczysc_btn.Size = new System.Drawing.Size(121, 30);
             this.wyczysc_btn.TabIndex = 37;
@@ -109,6 +112,7 @@
             // 
             this.edytuj_btn.BackColor = System.Drawing.Color.Yellow;
             this.edytuj_btn.Location = new System.Drawing.Point(195, 480);
+            this.edytuj_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.edytuj_btn.Name = "edytuj_btn";
             this.edytuj_btn.Size = new System.Drawing.Size(121, 30);
             this.edytuj_btn.TabIndex = 36;
@@ -120,6 +124,7 @@
             // 
             this.usun_btn.BackColor = System.Drawing.Color.Red;
             this.usun_btn.Location = new System.Drawing.Point(323, 444);
+            this.usun_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.usun_btn.Name = "usun_btn";
             this.usun_btn.Size = new System.Drawing.Size(121, 30);
             this.usun_btn.TabIndex = 35;
@@ -131,6 +136,7 @@
             // 
             this.dodaj_btn.BackColor = System.Drawing.Color.Lime;
             this.dodaj_btn.Location = new System.Drawing.Point(195, 444);
+            this.dodaj_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dodaj_btn.Name = "dodaj_btn";
             this.dodaj_btn.Size = new System.Drawing.Size(121, 30);
             this.dodaj_btn.TabIndex = 34;
@@ -145,10 +151,11 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dataGridView1.Location = new System.Drawing.Point(489, 47);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(948, 308);
+            this.dataGridView1.Size = new System.Drawing.Size(1038, 308);
             this.dataGridView1.TabIndex = 33;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -164,7 +171,7 @@
             // kategoria_label
             // 
             this.kategoria_label.AutoSize = true;
-            this.kategoria_label.Location = new System.Drawing.Point(192, 152);
+            this.kategoria_label.Location = new System.Drawing.Point(192, 153);
             this.kategoria_label.Name = "kategoria_label";
             this.kategoria_label.Size = new System.Drawing.Size(65, 16);
             this.kategoria_label.TabIndex = 30;
@@ -173,6 +180,7 @@
             // kategoria_textBox
             // 
             this.kategoria_textBox.Location = new System.Drawing.Point(195, 182);
+            this.kategoria_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kategoria_textBox.Name = "kategoria_textBox";
             this.kategoria_textBox.Size = new System.Drawing.Size(249, 22);
             this.kategoria_textBox.TabIndex = 29;
@@ -189,6 +197,7 @@
             // tytul_textBox
             // 
             this.tytul_textBox.Location = new System.Drawing.Point(195, 117);
+            this.tytul_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tytul_textBox.Name = "tytul_textBox";
             this.tytul_textBox.Size = new System.Drawing.Size(249, 22);
             this.tytul_textBox.TabIndex = 27;
@@ -206,8 +215,9 @@
             // klienci_btn
             // 
             this.klienci_btn.Location = new System.Drawing.Point(23, 320);
+            this.klienci_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klienci_btn.Name = "klienci_btn";
-            this.klienci_btn.Size = new System.Drawing.Size(130, 49);
+            this.klienci_btn.Size = new System.Drawing.Size(131, 49);
             this.klienci_btn.TabIndex = 25;
             this.klienci_btn.Text = "Klienci";
             this.klienci_btn.UseVisualStyleBackColor = true;
@@ -216,8 +226,9 @@
             // rezerwacje_btn
             // 
             this.rezerwacje_btn.Location = new System.Drawing.Point(23, 379);
+            this.rezerwacje_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rezerwacje_btn.Name = "rezerwacje_btn";
-            this.rezerwacje_btn.Size = new System.Drawing.Size(130, 49);
+            this.rezerwacje_btn.Size = new System.Drawing.Size(131, 49);
             this.rezerwacje_btn.TabIndex = 24;
             this.rezerwacje_btn.Text = "Rezerwacje";
             this.rezerwacje_btn.UseVisualStyleBackColor = true;
@@ -225,9 +236,10 @@
             // 
             // autorzy_btn
             // 
-            this.autorzy_btn.Location = new System.Drawing.Point(23, 189);
+            this.autorzy_btn.Location = new System.Drawing.Point(23, 190);
+            this.autorzy_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.autorzy_btn.Name = "autorzy_btn";
-            this.autorzy_btn.Size = new System.Drawing.Size(130, 49);
+            this.autorzy_btn.Size = new System.Drawing.Size(131, 49);
             this.autorzy_btn.TabIndex = 23;
             this.autorzy_btn.Text = "Autorzy";
             this.autorzy_btn.UseVisualStyleBackColor = true;
@@ -236,8 +248,9 @@
             // okno_startowe_btn
             // 
             this.okno_startowe_btn.Location = new System.Drawing.Point(23, 129);
+            this.okno_startowe_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.okno_startowe_btn.Name = "okno_startowe_btn";
-            this.okno_startowe_btn.Size = new System.Drawing.Size(130, 49);
+            this.okno_startowe_btn.Size = new System.Drawing.Size(131, 49);
             this.okno_startowe_btn.TabIndex = 22;
             this.okno_startowe_btn.Text = "Okno startowe";
             this.okno_startowe_btn.UseVisualStyleBackColor = true;
@@ -247,7 +260,7 @@
             // 
             this.add_book_label.AutoSize = true;
             this.add_book_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.add_book_label.Location = new System.Drawing.Point(190, 47);
+            this.add_book_label.Location = new System.Drawing.Point(189, 47);
             this.add_book_label.Name = "add_book_label";
             this.add_book_label.Size = new System.Drawing.Size(134, 25);
             this.add_book_label.TabIndex = 21;
@@ -266,8 +279,9 @@
             // 
             this.ksiazki_btn.BackColor = System.Drawing.Color.Lime;
             this.ksiazki_btn.Location = new System.Drawing.Point(23, 252);
+            this.ksiazki_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ksiazki_btn.Name = "ksiazki_btn";
-            this.ksiazki_btn.Size = new System.Drawing.Size(130, 49);
+            this.ksiazki_btn.Size = new System.Drawing.Size(131, 49);
             this.ksiazki_btn.TabIndex = 43;
             this.ksiazki_btn.Text = "Ksiazki";
             this.ksiazki_btn.UseVisualStyleBackColor = false;
@@ -285,7 +299,8 @@
             // comboBoxAutorzy
             // 
             this.comboBoxAutorzy.FormattingEnabled = true;
-            this.comboBoxAutorzy.Location = new System.Drawing.Point(195, 392);
+            this.comboBoxAutorzy.Location = new System.Drawing.Point(195, 391);
+            this.comboBoxAutorzy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxAutorzy.Name = "comboBoxAutorzy";
             this.comboBoxAutorzy.Size = new System.Drawing.Size(249, 24);
             this.comboBoxAutorzy.TabIndex = 45;
@@ -293,6 +308,7 @@
             // rok_dateTimePicker
             // 
             this.rok_dateTimePicker.Location = new System.Drawing.Point(195, 252);
+            this.rok_dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rok_dateTimePicker.Name = "rok_dateTimePicker";
             this.rok_dateTimePicker.Size = new System.Drawing.Size(249, 22);
             this.rok_dateTimePicker.TabIndex = 46;
@@ -300,6 +316,7 @@
             // strony_numericUpDown
             // 
             this.strony_numericUpDown.Location = new System.Drawing.Point(195, 320);
+            this.strony_numericUpDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.strony_numericUpDown.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -311,7 +328,8 @@
             // 
             // kategoria_btn
             // 
-            this.kategoria_btn.Location = new System.Drawing.Point(846, 456);
+            this.kategoria_btn.Location = new System.Drawing.Point(845, 455);
+            this.kategoria_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kategoria_btn.Name = "kategoria_btn";
             this.kategoria_btn.Size = new System.Drawing.Size(121, 30);
             this.kategoria_btn.TabIndex = 50;
@@ -322,7 +340,7 @@
             // znajdz_po_kategori_label
             // 
             this.znajdz_po_kategori_label.AutoSize = true;
-            this.znajdz_po_kategori_label.Location = new System.Drawing.Point(486, 463);
+            this.znajdz_po_kategori_label.Location = new System.Drawing.Point(485, 463);
             this.znajdz_po_kategori_label.Name = "znajdz_po_kategori_label";
             this.znajdz_po_kategori_label.Size = new System.Drawing.Size(167, 16);
             this.znajdz_po_kategori_label.TabIndex = 49;
@@ -332,14 +350,16 @@
             // comboBoxKategoria
             // 
             this.comboBoxKategoria.FormattingEnabled = true;
-            this.comboBoxKategoria.Location = new System.Drawing.Point(666, 460);
+            this.comboBoxKategoria.Location = new System.Drawing.Point(667, 460);
+            this.comboBoxKategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxKategoria.Name = "comboBoxKategoria";
             this.comboBoxKategoria.Size = new System.Drawing.Size(168, 24);
             this.comboBoxKategoria.TabIndex = 51;
             // 
             // data_btn
             // 
-            this.data_btn.Location = new System.Drawing.Point(846, 507);
+            this.data_btn.Location = new System.Drawing.Point(845, 507);
+            this.data_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.data_btn.Name = "data_btn";
             this.data_btn.Size = new System.Drawing.Size(121, 30);
             this.data_btn.TabIndex = 53;
@@ -350,7 +370,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(486, 521);
+            this.label2.Location = new System.Drawing.Point(485, 521);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 16);
             this.label2.TabIndex = 52;
@@ -359,20 +379,23 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(640, 516);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(194, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(193, 22);
             this.dateTimePicker1.TabIndex = 54;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(640, 556);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(194, 22);
+            this.dateTimePicker2.Size = new System.Drawing.Size(193, 22);
             this.dateTimePicker2.TabIndex = 55;
             // 
             // data_wyczysc_btn
             // 
-            this.data_wyczysc_btn.Location = new System.Drawing.Point(846, 548);
+            this.data_wyczysc_btn.Location = new System.Drawing.Point(845, 548);
+            this.data_wyczysc_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.data_wyczysc_btn.Name = "data_wyczysc_btn";
             this.data_wyczysc_btn.Size = new System.Drawing.Size(121, 30);
             this.data_wyczysc_btn.TabIndex = 56;
@@ -382,7 +405,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(846, 415);
+            this.button1.Location = new System.Drawing.Point(845, 415);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 30);
             this.button1.TabIndex = 59;
@@ -393,7 +417,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(486, 422);
+            this.label3.Location = new System.Drawing.Point(485, 422);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(162, 16);
             this.label3.TabIndex = 58;
@@ -401,7 +425,8 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(666, 419);
+            this.textBox1.Location = new System.Drawing.Point(667, 418);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(168, 22);
             this.textBox1.TabIndex = 57;
@@ -410,7 +435,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1488, 728);
+            this.ClientSize = new System.Drawing.Size(1539, 729);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
@@ -447,6 +472,7 @@
             this.Controls.Add(this.autorzy_btn);
             this.Controls.Add(this.okno_startowe_btn);
             this.Controls.Add(this.add_book_label);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form3";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.Form3_Load);

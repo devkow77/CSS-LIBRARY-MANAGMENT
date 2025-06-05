@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace BibliotekaProjekt
 {
+    // AUTORZY
     public partial class Form2: Form
     {
         int selectedAuthorId = -1; // Zmienna do przechowywania ID wybranego autora

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace BibliotekaProjekt
 {
+    // KLIENCI
     public partial class Form4: Form
     {
         int selectedClientId = -1;
@@ -179,6 +180,7 @@ namespace BibliotekaProjekt
                 miasto_textBox.Text = row.Cells["miasto"].Value.ToString();
                 ulica_textBox.Text = row.Cells["ulica"].Value.ToString();
                 kod_pocztowy_textBox.Text = row.Cells["kod_pocztowy"].Value.ToString();
+                znajdz_autora_textBox.Text = row.Cells["pesel"].Value.ToString();
             }
 
         }
@@ -330,5 +332,118 @@ namespace BibliotekaProjekt
             form5.Show();
             this.Hide();
         }
+
+        private void znajdz_btn_Click(object sender, EventArgs e)
+        {
+            string pesel = znajdz_autora_textBox.Text.Trim();
+
+            try
+            {
+                using (var connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string klientQuery;
+
+                    if (string.IsNullOrEmpty(pesel))
+                    {
+                        // Jeśli PESEL nie podano – pobierz wszystkich klientów
+                        klientQuery = @"
+                    SELECT
+                        id,
+                        imie,
+                        nazwisko,
+                        pesel,
+                        miasto,
+                        ulica,
+                        kod_pocztowy
+                    FROM
+                        Klienci";
+                    }
+                    else
+                    {
+                        // Jeśli PESEL podano – pobierz klienta z podanym PESEL
+                        klientQuery = @"
+                    SELECT
+                        id,
+                        imie,
+                        nazwisko,
+                        pesel,
+                        miasto,
+                        ulica,
+                        kod_pocztowy
+                    FROM
+                        Klienci
+                    WHERE
+                        pesel = @pesel";
+                    }
+
+                    using (var klientCmd = new MySqlCommand(klientQuery, connection))
+                    {
+                        if (!string.IsNullOrEmpty(pesel))
+                            klientCmd.Parameters.AddWithValue("@pesel", pesel);
+
+                        using (var adapter1 = new MySqlDataAdapter(klientCmd))
+                        {
+                            DataTable klientDT = new DataTable();
+                            adapter1.Fill(klientDT);
+                            dataGridView1.DataSource = klientDT;
+
+                            if (!string.IsNullOrEmpty(pesel))
+                            {
+                                if (klientDT.Rows.Count > 0)
+                                {
+                                    int klientId = Convert.ToInt32(klientDT.Rows[0]["id"]);
+
+                                    // Pobierz wypożyczenia klienta
+                                    string wypozyczeniaQuery = @"
+                                SELECT
+                                    ks.tytul,
+                                    ks.kategoria,
+                                    ks.rok_wydania,
+                                    ks.liczba_stron,
+                                    CONCAT(a.imie, ' ', a.nazwisko) AS autor,
+                                    r.data_rezerwacji,
+                                    r.data_oddania
+                                FROM
+                                    Rezerwacje r
+                                INNER JOIN Ksiazki ks ON r.id_ksiazki = ks.id
+                                INNER JOIN Autorzy a ON ks.id_autora = a.id
+                                WHERE
+                                    r.id_klienta = @klientId";
+
+                                    using (var wypozyczeniaCmd = new MySqlCommand(wypozyczeniaQuery, connection))
+                                    {
+                                        wypozyczeniaCmd.Parameters.AddWithValue("@klientId", klientId);
+                                        using (var adapter2 = new MySqlDataAdapter(wypozyczeniaCmd))
+                                        {
+                                            DataTable wypozyczeniaDT = new DataTable();
+                                            adapter2.Fill(wypozyczeniaDT);
+                                            dataGridView2.DataSource = wypozyczeniaDT;
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    dataGridView2.DataSource = null;
+                                    MessageBox.Show("Nie znaleziono klienta o podanym numerze PESEL.");
+                                }
+                            }
+                            else
+                            {
+                                // Jeśli nie szukano po PESEL – wyczyść rezerwacje
+                                dataGridView2.DataSource = null;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błąd podczas wyszukiwania: " + ex.Message);
+            }
+        }
+
+
     }
 }

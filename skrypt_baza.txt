@@ -24,6 +24,8 @@ CREATE TABLE Ksiazki(
     kategoria VARCHAR(40) NOT NULL,
     rok_wydania DATE NOT NULL,
     liczba_stron INT,
+    ilosc_sztuk INT DEFAULT 1,
+    ilosc_dostepnych INT DEFAULT 1,
     id_autora INT NOT NULL,
     FOREIGN KEY(id_autora) REFERENCES Autorzy(id)
 );
@@ -34,6 +36,8 @@ CREATE TABLE Rezerwacje(
     id_klienta INT NOT NULL,
     id_ksiazki INT NOT NULL,
     data_rezerwacji DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    data_oddania DATETIME NOT NULL,
+    status ENUM('w trakcie', 'zakonczono') DEFAULT 'w trakcie',
     FOREIGN KEY(id_klienta) REFERENCES Klienci(id),
     FOREIGN KEY(id_ksiazki) REFERENCES Ksiazki(id)
 );

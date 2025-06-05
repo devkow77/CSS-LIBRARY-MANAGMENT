@@ -55,15 +55,18 @@
             this.ulica_textBox = new System.Windows.Forms.TextBox();
             this.miasto_label = new System.Windows.Forms.Label();
             this.miasto_textBox = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // autorzy_btn
             // 
             this.autorzy_btn.BackColor = System.Drawing.Color.White;
-            this.autorzy_btn.Location = new System.Drawing.Point(34, 177);
+            this.autorzy_btn.Location = new System.Drawing.Point(35, 177);
+            this.autorzy_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.autorzy_btn.Name = "autorzy_btn";
-            this.autorzy_btn.Size = new System.Drawing.Size(130, 49);
+            this.autorzy_btn.Size = new System.Drawing.Size(131, 49);
             this.autorzy_btn.TabIndex = 42;
             this.autorzy_btn.Text = "Autorzy";
             this.autorzy_btn.UseVisualStyleBackColor = false;
@@ -71,17 +74,19 @@
             // 
             // znajdz_btn
             // 
-            this.znajdz_btn.Location = new System.Drawing.Point(857, 359);
+            this.znajdz_btn.Location = new System.Drawing.Point(856, 693);
+            this.znajdz_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.znajdz_btn.Name = "znajdz_btn";
             this.znajdz_btn.Size = new System.Drawing.Size(121, 30);
             this.znajdz_btn.TabIndex = 41;
             this.znajdz_btn.Text = "znajdz";
             this.znajdz_btn.UseVisualStyleBackColor = true;
+            this.znajdz_btn.Click += new System.EventHandler(this.znajdz_btn_Click);
             // 
             // znajdz_po_peselu_label
             // 
             this.znajdz_po_peselu_label.AutoSize = true;
-            this.znajdz_po_peselu_label.Location = new System.Drawing.Point(497, 366);
+            this.znajdz_po_peselu_label.Location = new System.Drawing.Point(496, 699);
             this.znajdz_po_peselu_label.Name = "znajdz_po_peselu_label";
             this.znajdz_po_peselu_label.Size = new System.Drawing.Size(152, 16);
             this.znajdz_po_peselu_label.TabIndex = 40;
@@ -89,7 +94,8 @@
             // 
             // znajdz_autora_textBox
             // 
-            this.znajdz_autora_textBox.Location = new System.Drawing.Point(677, 363);
+            this.znajdz_autora_textBox.Location = new System.Drawing.Point(676, 697);
+            this.znajdz_autora_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.znajdz_autora_textBox.Name = "znajdz_autora_textBox";
             this.znajdz_autora_textBox.Size = new System.Drawing.Size(168, 22);
             this.znajdz_autora_textBox.TabIndex = 39;
@@ -98,6 +104,7 @@
             // 
             this.wyczysc_btn.BackColor = System.Drawing.Color.Silver;
             this.wyczysc_btn.Location = new System.Drawing.Point(332, 529);
+            this.wyczysc_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.wyczysc_btn.Name = "wyczysc_btn";
             this.wyczysc_btn.Size = new System.Drawing.Size(121, 30);
             this.wyczysc_btn.TabIndex = 38;
@@ -109,6 +116,7 @@
             // 
             this.edytuj_btn.BackColor = System.Drawing.Color.Yellow;
             this.edytuj_btn.Location = new System.Drawing.Point(204, 529);
+            this.edytuj_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.edytuj_btn.Name = "edytuj_btn";
             this.edytuj_btn.Size = new System.Drawing.Size(121, 30);
             this.edytuj_btn.TabIndex = 37;
@@ -119,7 +127,8 @@
             // usun_btn
             // 
             this.usun_btn.BackColor = System.Drawing.Color.Red;
-            this.usun_btn.Location = new System.Drawing.Point(332, 493);
+            this.usun_btn.Location = new System.Drawing.Point(332, 494);
+            this.usun_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.usun_btn.Name = "usun_btn";
             this.usun_btn.Size = new System.Drawing.Size(121, 30);
             this.usun_btn.TabIndex = 36;
@@ -130,7 +139,8 @@
             // dodaj_btn
             // 
             this.dodaj_btn.BackColor = System.Drawing.Color.Lime;
-            this.dodaj_btn.Location = new System.Drawing.Point(204, 493);
+            this.dodaj_btn.Location = new System.Drawing.Point(204, 494);
+            this.dodaj_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dodaj_btn.Name = "dodaj_btn";
             this.dodaj_btn.Size = new System.Drawing.Size(121, 30);
             this.dodaj_btn.TabIndex = 35;
@@ -144,11 +154,12 @@
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dataGridView1.Location = new System.Drawing.Point(500, 35);
+            this.dataGridView1.Location = new System.Drawing.Point(500, 34);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(728, 308);
+            this.dataGridView1.Size = new System.Drawing.Size(854, 308);
             this.dataGridView1.TabIndex = 34;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -163,7 +174,8 @@
             // 
             // pesel_textBox
             // 
-            this.pesel_textBox.Location = new System.Drawing.Point(206, 240);
+            this.pesel_textBox.Location = new System.Drawing.Point(205, 240);
+            this.pesel_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pesel_textBox.Name = "pesel_textBox";
             this.pesel_textBox.Size = new System.Drawing.Size(249, 22);
             this.pesel_textBox.TabIndex = 32;
@@ -179,7 +191,8 @@
             // 
             // nazwisko_textBox
             // 
-            this.nazwisko_textBox.Location = new System.Drawing.Point(206, 170);
+            this.nazwisko_textBox.Location = new System.Drawing.Point(205, 170);
+            this.nazwisko_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nazwisko_textBox.Name = "nazwisko_textBox";
             this.nazwisko_textBox.Size = new System.Drawing.Size(249, 22);
             this.nazwisko_textBox.TabIndex = 30;
@@ -187,7 +200,7 @@
             // imie_label
             // 
             this.imie_label.AutoSize = true;
-            this.imie_label.Location = new System.Drawing.Point(203, 77);
+            this.imie_label.Location = new System.Drawing.Point(203, 78);
             this.imie_label.Name = "imie_label";
             this.imie_label.Size = new System.Drawing.Size(32, 16);
             this.imie_label.TabIndex = 29;
@@ -195,7 +208,8 @@
             // 
             // imie_textBox
             // 
-            this.imie_textBox.Location = new System.Drawing.Point(206, 105);
+            this.imie_textBox.Location = new System.Drawing.Point(205, 105);
+            this.imie_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.imie_textBox.Name = "imie_textBox";
             this.imie_textBox.Size = new System.Drawing.Size(249, 22);
             this.imie_textBox.TabIndex = 28;
@@ -204,7 +218,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(30, 77);
+            this.label1.Location = new System.Drawing.Point(29, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 20);
             this.label1.TabIndex = 27;
@@ -213,18 +227,20 @@
             // klienci_btn
             // 
             this.klienci_btn.BackColor = System.Drawing.Color.Lime;
-            this.klienci_btn.Location = new System.Drawing.Point(34, 299);
+            this.klienci_btn.Location = new System.Drawing.Point(35, 299);
+            this.klienci_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.klienci_btn.Name = "klienci_btn";
-            this.klienci_btn.Size = new System.Drawing.Size(130, 49);
+            this.klienci_btn.Size = new System.Drawing.Size(131, 49);
             this.klienci_btn.TabIndex = 26;
             this.klienci_btn.Text = "Klienci";
             this.klienci_btn.UseVisualStyleBackColor = false;
             // 
             // rezerwacje_btn
             // 
-            this.rezerwacje_btn.Location = new System.Drawing.Point(34, 358);
+            this.rezerwacje_btn.Location = new System.Drawing.Point(35, 358);
+            this.rezerwacje_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rezerwacje_btn.Name = "rezerwacje_btn";
-            this.rezerwacje_btn.Size = new System.Drawing.Size(130, 49);
+            this.rezerwacje_btn.Size = new System.Drawing.Size(131, 49);
             this.rezerwacje_btn.TabIndex = 25;
             this.rezerwacje_btn.Text = "Rezerwacje";
             this.rezerwacje_btn.UseVisualStyleBackColor = true;
@@ -232,9 +248,10 @@
             // 
             // ksiazki_btn
             // 
-            this.ksiazki_btn.Location = new System.Drawing.Point(34, 240);
+            this.ksiazki_btn.Location = new System.Drawing.Point(35, 240);
+            this.ksiazki_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ksiazki_btn.Name = "ksiazki_btn";
-            this.ksiazki_btn.Size = new System.Drawing.Size(130, 49);
+            this.ksiazki_btn.Size = new System.Drawing.Size(131, 49);
             this.ksiazki_btn.TabIndex = 24;
             this.ksiazki_btn.Text = "Ksiazki";
             this.ksiazki_btn.UseVisualStyleBackColor = true;
@@ -242,9 +259,10 @@
             // 
             // okno_startowe_btn
             // 
-            this.okno_startowe_btn.Location = new System.Drawing.Point(34, 117);
+            this.okno_startowe_btn.Location = new System.Drawing.Point(35, 117);
+            this.okno_startowe_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.okno_startowe_btn.Name = "okno_startowe_btn";
-            this.okno_startowe_btn.Size = new System.Drawing.Size(130, 49);
+            this.okno_startowe_btn.Size = new System.Drawing.Size(131, 49);
             this.okno_startowe_btn.TabIndex = 23;
             this.okno_startowe_btn.Text = "Okno startowe";
             this.okno_startowe_btn.UseVisualStyleBackColor = true;
@@ -254,7 +272,7 @@
             // 
             this.add_author_label.AutoSize = true;
             this.add_author_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.add_author_label.Location = new System.Drawing.Point(201, 35);
+            this.add_author_label.Location = new System.Drawing.Point(201, 34);
             this.add_author_label.Name = "add_author_label";
             this.add_author_label.Size = new System.Drawing.Size(124, 25);
             this.add_author_label.TabIndex = 22;
@@ -271,7 +289,8 @@
             // 
             // kod_pocztowy_textBox
             // 
-            this.kod_pocztowy_textBox.Location = new System.Drawing.Point(206, 447);
+            this.kod_pocztowy_textBox.Location = new System.Drawing.Point(205, 447);
+            this.kod_pocztowy_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kod_pocztowy_textBox.Name = "kod_pocztowy_textBox";
             this.kod_pocztowy_textBox.Size = new System.Drawing.Size(249, 22);
             this.kod_pocztowy_textBox.TabIndex = 47;
@@ -287,7 +306,8 @@
             // 
             // ulica_textBox
             // 
-            this.ulica_textBox.Location = new System.Drawing.Point(206, 377);
+            this.ulica_textBox.Location = new System.Drawing.Point(205, 377);
+            this.ulica_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ulica_textBox.Name = "ulica_textBox";
             this.ulica_textBox.Size = new System.Drawing.Size(249, 22);
             this.ulica_textBox.TabIndex = 45;
@@ -303,16 +323,32 @@
             // 
             // miasto_textBox
             // 
-            this.miasto_textBox.Location = new System.Drawing.Point(206, 312);
+            this.miasto_textBox.Location = new System.Drawing.Point(205, 313);
+            this.miasto_textBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.miasto_textBox.Name = "miasto_textBox";
             this.miasto_textBox.Size = new System.Drawing.Size(249, 22);
             this.miasto_textBox.TabIndex = 43;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dataGridView2.Location = new System.Drawing.Point(500, 358);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(854, 308);
+            this.dataGridView2.TabIndex = 49;
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1242, 768);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.kod_pocztowy_label);
             this.Controls.Add(this.kod_pocztowy_textBox);
             this.Controls.Add(this.ulica_label);
@@ -340,10 +376,12 @@
             this.Controls.Add(this.ksiazki_btn);
             this.Controls.Add(this.okno_startowe_btn);
             this.Controls.Add(this.add_author_label);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form4";
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.Form4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,5 +416,6 @@
         private System.Windows.Forms.TextBox ulica_textBox;
         private System.Windows.Forms.Label miasto_label;
         private System.Windows.Forms.TextBox miasto_textBox;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
