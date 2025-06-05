@@ -1,0 +1,132 @@
+-- Utworzenie tabeli Klienci 
+CREATE TABLE Klienci(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    imie VARCHAR(30) NOT NULL,
+    nazwisko VARCHAR(50) NOT NULL,
+    pesel VARCHAR(11) NOT NULL UNIQUE,
+    miasto VARCHAR(50) NOT NULL,
+    ulica VARCHAR(50) NOT NULL,
+    kod_pocztowy VARCHAR(6) NOT NULL
+);
+
+-- Utworzenie tabeli Autorzy 
+CREATE TABLE Autorzy(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    imie VARCHAR(30) NOT NULL,
+    nazwisko VARCHAR(50) NOT NULL,
+    kraj VARCHAR(30) NOT NULL
+);
+
+-- Utworzenie tabeli Ksiazki
+CREATE TABLE Ksiazki(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    tytul VARCHAR(60) NOT NULL,
+    kategoria VARCHAR(40) NOT NULL,
+    rok_wydania DATE NOT NULL,
+    liczba_stron INT,
+    id_autora INT NOT NULL,
+    FOREIGN KEY(id_autora) REFERENCES Autorzy(id)
+);
+
+-- Utworzenie tabeli Rezerwacje
+CREATE TABLE Rezerwacje(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    id_klienta INT NOT NULL,
+    id_ksiazki INT NOT NULL,
+    data_rezerwacji DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    FOREIGN KEY(id_klienta) REFERENCES Klienci(id),
+    FOREIGN KEY(id_ksiazki) REFERENCES Ksiazki(id)
+);
+
+-- Dodanie danych do tabeli Klienci
+INSERT INTO Klienci (imie, nazwisko, pesel, miasto, ulica, kod_pocztowy) VALUES
+('Anna', 'Kowalska', '90010112345', 'Warszawa', 'Lipowa 12', '00-123'),
+('Jan', 'Nowak', '85050367890', 'Kraków', 'D³uga 34', '31-234'),
+('Maria', 'Wiœniewska', '92041209876', 'Gdañsk', 'Krótka 5', '80-001'),
+('Tomasz', 'Wójcik', '83060645678', 'Poznañ', 'Szeroka 9', '60-789'),
+('Katarzyna', 'Kamiñska', '91070934567', 'Wroc³aw', 'G³ówna 44', '50-123'),
+('Micha³', 'Lewandowski', '88081276543', 'Lublin', 'Polna 22', '20-400'),
+('Joanna', 'D¹browska', '95051534567', 'Szczecin', 'Jesienna 3', '70-345'),
+('Piotr', 'Zieliñski', '97011923456', '£ódŸ', 'Letnia 18', '90-112'),
+('Agnieszka', 'Szymañska', '84030298765', 'Katowice', 'Zimowa 7', '40-456'),
+('Pawe³', 'WoŸniak', '86092767890', 'Bydgoszcz', 'Wiosenna 11', '85-200'),
+('Ewa', 'Koz³owska', '93081845678', 'Toruñ', 'Grunwaldzka 2', '87-100'),
+('Krzysztof', 'Jankowski', '78031111234', 'Radom', 'Mazowiecka 9', '26-600'),
+('Monika', 'Mazur', '91040299999', 'Rzeszów', '3 Maja 7', '35-001'),
+('Adam', 'Krawczyk', '80072355555', 'Bia³ystok', 'Pi³sudskiego 21', '15-001'),
+('Natalia', 'Grabowska', '90011566666', 'Opole', 'Kwiatowa 8', '45-200'),
+('Grzegorz', 'Zaj¹c', '85091177777', 'Kielce', 'Spacerowa 13', '25-500'),
+('Karolina', 'Król', '88040588888', 'Zielona Góra', 'Parkowa 4', '65-001'),
+('Maciej', 'Wieczorek', '87010199999', 'Olsztyn', 'Jasna 16', '10-123'),
+('Magdalena', 'Wróbel', '96030612345', 'Legnica', 'S³oneczna 25', '59-220'),
+('Dariusz', 'Pawlak', '94071254321', 'P³ock', 'Mostowa 3', '09-400');
+
+-- Dodanie danych do tabeli Autorzy
+INSERT INTO Autorzy (imie, nazwisko, kraj) VALUES
+('Henryk', 'Sienkiewicz', 'Polska'),
+('Adam', 'Mickiewicz', 'Polska'),
+('William', 'Shakespeare', 'Anglia'),
+('Jane', 'Austen', 'Anglia'),
+('Mark', 'Twain', 'USA'),
+('Stephen', 'King', 'USA'),
+('J.K.', 'Rowling', 'Wielka Brytania'),
+('Agatha', 'Christie', 'Wielka Brytania'),
+('George', 'Orwell', 'Wielka Brytania'),
+('Ernest', 'Hemingway', 'USA'),
+('Franz', 'Kafka', 'Austria'),
+('Fyodor', 'Dostoevsky', 'Rosja'),
+('Leo', 'Tolstoy', 'Rosja'),
+('Gabriel', 'Garcia Marquez', 'Kolumbia'),
+('Paulo', 'Coelho', 'Brazylia'),
+('Haruki', 'Murakami', 'Japonia'),
+('Umberto', 'Eco', 'W³ochy'),
+('Victor', 'Hugo', 'Francja'),
+('Charles', 'Dickens', 'Anglia'),
+('Homer', 'Simpson', 'Springfield'); -- humorystyczny akcent
+
+-- Dodanie danych do tabeli Ksiazki
+INSERT INTO Ksiazki (tytul, kategoria, rok_wydania, liczba_stron, id_autora) VALUES
+('Quo Vadis', 'Powieœæ historyczna', '1901-01-01', 512, 1),
+('Pan Tadeusz', 'Epopeja', '1902-01-01', 340, 2),
+('Hamlet', 'Dramat', '1910-01-01', 210, 3),
+('Duma i uprzedzenie', 'Romans', '1920-01-01', 279, 4),
+('Przygody Tomka Sawyera', 'Przygodowa', '1930-01-01', 274, 5),
+('Lœnienie', 'Horror', '1977-01-01', 447, 6),
+('Harry Potter i Kamieñ Filozoficzny', 'Fantasy', '1997-01-01', 309, 7),
+('Morderstwo w Orient Expressie', 'Krymina³', '1934-01-01', 256, 8),
+('Rok 1984', 'Dystopia', '1949-01-01', 328, 9),
+('Stary cz³owiek i morze', 'Powieœæ', '1952-01-01', 132, 10),
+('Proces', 'Powieœæ', '1925-01-01', 208, 11),
+('Zbrodnia i kara', 'Powieœæ psychologiczna', '1935-01-01', 430, 12),
+('Wojna i pokój', 'Powieœæ epicka', '1940-01-01', 1225, 13),
+('Sto lat samotnoœci', 'Realizm magiczny', '1967-01-01', 417, 14),
+('Alchemik', 'Filozoficzna', '1988-01-01', 190, 15),
+('Norwegian Wood', 'Romans', '1987-01-01', 296, 16),
+('Imiê ró¿y', 'Krymina³ historyczny', '1980-01-01', 536, 17),
+('Nêdznicy', 'Powieœæ', '1955-01-01', 1232, 18),
+('Opowieœæ o dwóch miastach', 'Historyczna', '1960-01-01', 489, 19),
+('Odyseja', 'Epos', '2001-01-01', 541, 20);
+
+
+-- Dodanie danych do tabeli Rezerwacje
+INSERT INTO Rezerwacje (id_klienta, id_ksiazki, data_rezerwacji) VALUES
+(1, 1, '2024-01-10 10:00:00'),
+(2, 2, '2024-01-15 11:30:00'),
+(3, 3, '2024-02-05 09:45:00'),
+(4, 4, '2024-02-20 14:20:00'),
+(5, 5, '2024-03-10 16:00:00'),
+(6, 6, '2024-03-22 12:30:00'),
+(7, 7, '2024-04-01 10:10:00'),
+(8, 8, '2024-04-14 13:25:00'),
+(9, 9, '2024-05-03 11:00:00'),
+(10, 10, '2024-05-10 15:45:00'),
+(11, 11, '2024-05-20 09:00:00'),
+(12, 12, '2024-06-01 14:00:00'),
+(13, 13, '2024-06-10 16:30:00'),
+(14, 14, '2024-06-15 12:00:00'),
+(15, 15, '2024-06-20 13:30:00'),
+(16, 16, '2024-06-22 14:15:00'),
+(17, 17, '2024-06-25 11:45:00'),
+(18, 18, '2024-06-27 10:50:00'),
+(19, 19, '2024-06-29 12:40:00'),
+(20, 20, '2024-06-30 15:10:00');
